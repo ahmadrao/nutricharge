@@ -3,7 +3,10 @@
 
 @section('content')
     <h1>Posts</h1>
+    @if(Session::has('post_deleted'))
 
+        <p class="bg-danger">{{session('post_deleted')}}</p>
+    @endif
     <table class="table table-dark">
         <thead>
         <tr>
@@ -24,11 +27,11 @@
                 <tbody>
                 <tr>
                     <th scope="row">{{$post->id}}</th>
-                    <td><img height="50px" src="{{$post->photo ? $post->photo->file : 'http://placehold.it/400x400'}}" alt=""></td>
+                    <td><a href="/admin/posts/{{$post->id}}/edit"><img height="50px" src="{{$post->photo ? $post->photo->file : 'http://placehold.it/400x400'}}" alt=""></a></td>
                     <td>{{$post->user->name}}</td>
                     <td>{{$post->category ? $post->category->name : "Undefined Category"}}</td>
                     <td>{{$post->title}}</td>
-                    <td>{{$post->body}}</td>
+                    <td>{{str_limit($post->body, 20)}}</td>
                     <td>{{$post->created_at->diffForHumans()}}</td>
                     <td>{{$post->updated_at->diffForHumans()}}</td>
                 </tr>
