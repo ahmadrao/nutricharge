@@ -146,7 +146,7 @@
                             </li>
 
                             <li>
-                                <a href="">Create Post</a>
+                                <a href="/admin/posts/create">Create Post</a>
                             </li>
 
                             <li>
