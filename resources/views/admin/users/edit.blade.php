@@ -3,13 +3,14 @@
 
 @section('content')
     <h1>Edit User</h1>
+    @include('includes.form_error')
 
     {!! Form::model($user, ['method'=>'PATCH', 'action'=>['AdminUsersController@update', $user->id], 'files'=>true]) !!}
 
     <div class="col-md-3">
         <div class="form-group">
             {!! Form::label('photo_id', 'Your Image:') !!}
-            <img height="70px" src="{{$user->photo ? $user->photo->file : 'http://placehold.it/400x400'}}" alt="" class="img-responsive img-rounded">
+            <img src="{{$user->photo ? $user->photo->file : 'http://placehold.it/400x400'}}" alt="" class="img-responsive img-rounded">
             {!! Form::file('photo_id', null, ['class'=>'form-control']) !!}
         </div>
     </div>
@@ -63,22 +64,23 @@
         </div>
 
         <div class="row form-group">
-            {!! Form::submit('Create User', ['class'=> 'btn btn-primary col-md-2']) !!}
+            {!! Form::submit('Update User', ['class'=> 'btn btn-primary col-md-2']) !!}
         </div>
 
     </div>
 
+    <div class="col-md-9">
+        {!! Form::close() !!}
 
-    {!! Form::close() !!}
+        {!! Form::open(['method'=>'DELETE', 'action'=>['AdminUsersController@destroy', $user->id]]) !!}
 
-    {!! Form::open(['method'=>'DELETE', 'action'=>['AdminUsersController@destroy', $user->id]]) !!}
+            <div class="row pull-right form-group">
+                {!! Form::submit('Delete User', ['class'=> 'btn btn-danger mb-141']) !!}
+            </div>
 
-        <div class="row pull-right form-group">
-            {!! Form::submit('Delete User', ['class'=> 'btn btn-danger mb-141']) !!}
-        </div>
-
-    {!! Form::close() !!}
-    {{--@include('includes/form_error')--}}
+        {!! Form::close() !!}
+    </div>
+    
 @endsection
 
 

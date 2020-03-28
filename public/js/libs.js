@@ -2328,8 +2328,7 @@ if (typeof jQuery === 'undefined') {
  * Made by Osman Nuri Okumus
  * Under MIT License
  */
-;(function($, window, document, undefined) {
-
+(function($, window, document, undefined) {
     var pluginName = "metisMenu",
         defaults = {
             toggle: true,
@@ -2346,56 +2345,94 @@ if (typeof jQuery === 'undefined') {
 
     Plugin.prototype = {
         init: function() {
-
             var $this = this.element,
                 $toggle = this.settings.toggle,
                 obj = this;
 
             if (this.isIE() <= 9) {
-                $this.find("li.active").has("ul").children("ul").collapse("show");
-                $this.find("li").not(".active").has("ul").children("ul").collapse("hide");
+                $this
+                    .find("li.active")
+                    .has("ul")
+                    .children("ul")
+                    .collapse("show");
+                $this
+                    .find("li")
+                    .not(".active")
+                    .has("ul")
+                    .children("ul")
+                    .collapse("hide");
             } else {
-                $this.find("li.active").has("ul").children("ul").addClass("collapse in");
-                $this.find("li").not(".active").has("ul").children("ul").addClass("collapse");
+                $this
+                    .find("li.active")
+                    .has("ul")
+                    .children("ul")
+                    .addClass("collapse in");
+                $this
+                    .find("li")
+                    .not(".active")
+                    .has("ul")
+                    .children("ul")
+                    .addClass("collapse");
             }
 
             //add the "doubleTapToGo" class to active items if needed
             if (obj.settings.doubleTapToGo) {
-                $this.find("li.active").has("ul").children("a").addClass("doubleTapToGo");
+                $this
+                    .find("li.active")
+                    .has("ul")
+                    .children("a")
+                    .addClass("doubleTapToGo");
             }
 
-            $this.find("li").has("ul").children("a").on("click" + "." + pluginName, function(e) {
-                e.preventDefault();
+            $this
+                .find("li")
+                .has("ul")
+                .children("a")
+                .on("click" + "." + pluginName, function(e) {
+                    e.preventDefault();
 
-                //Do we need to enable the double tap
-                if (obj.settings.doubleTapToGo) {
-
-                    //if we hit a second time on the link and the href is valid, navigate to that url
-                    if (obj.doubleTapToGo($(this)) && $(this).attr("href") !== "#" && $(this).attr("href") !== "") {
-                        e.stopPropagation();
-                        document.location = $(this).attr("href");
-                        return;
+                    //Do we need to enable the double tap
+                    if (obj.settings.doubleTapToGo) {
+                        //if we hit a second time on the link and the href is valid, navigate to that url
+                        if (
+                            obj.doubleTapToGo($(this)) &&
+                            $(this).attr("href") !== "#" &&
+                            $(this).attr("href") !== ""
+                        ) {
+                            e.stopPropagation();
+                            document.location = $(this).attr("href");
+                            return;
+                        }
                     }
-                }
 
-                $(this).parent("li").toggleClass("active").children("ul").collapse("toggle");
+                    $(this)
+                        .parent("li")
+                        .toggleClass("active")
+                        .children("ul")
+                        .collapse("toggle");
 
-                if ($toggle) {
-                    $(this).parent("li").siblings().removeClass("active").children("ul.in").collapse("hide");
-                }
-
-            });
+                    if ($toggle) {
+                        $(this)
+                            .parent("li")
+                            .siblings()
+                            .removeClass("active")
+                            .children("ul.in")
+                            .collapse("hide");
+                    }
+                });
         },
 
-        isIE: function() { //https://gist.github.com/padolsey/527683
+        isIE: function() {
+            //https://gist.github.com/padolsey/527683
             var undef,
                 v = 3,
                 div = document.createElement("div"),
                 all = div.getElementsByTagName("i");
 
             while (
-                div.innerHTML = "<!--[if gt IE " + (++v) + "]><i></i><![endif]-->",
-                all[0]
+                ((div.innerHTML =
+                    "<!--[if gt IE " + ++v + "]><i></i><![endif]-->"),
+                all[0])
             ) {
                 return v > 4 ? v : undef;
             }
@@ -2413,7 +2450,7 @@ if (typeof jQuery === 'undefined') {
 
             //does not exists, add a new class and return false
             if (elem.parent().children("ul").length) {
-                 //first remove all other class
+                //first remove all other class
                 $this.find(".doubleTapToGo").removeClass("doubleTapToGo");
                 //add the class on the current element
                 elem.addClass("doubleTapToGo");
@@ -2425,11 +2462,10 @@ if (typeof jQuery === 'undefined') {
             this.element.off("." + pluginName);
             this.element.removeData(pluginName);
         }
-
     };
 
     $.fn[pluginName] = function(options) {
-        this.each(function () {
+        this.each(function() {
             var el = $(this);
             if (el.data(pluginName)) {
                 el.data(pluginName).remove();
@@ -2438,8 +2474,8 @@ if (typeof jQuery === 'undefined') {
         });
         return this;
     };
-
 })(jQuery, window, document);
+
 $(function() {
 
     $('#side-menu').metisMenu();
@@ -2477,69 +2513,46 @@ $(function() {
     }
 });
 
-/**
- * Created by edwin on 11/7/15.
- */
-
-$(document).ready(function(){
-
-    $('#selectAllBoxes').click(function(event){
-
-        if(this.checked) {
-
-            $('.checkBoxes').each(function(){
-
+$(document).ready(function() {
+    $("#selectAllBoxes").click(function(event) {
+        if (this.checked) {
+            $(".checkBoxes").each(function() {
                 this.checked = true;
-
             });
-
         } else {
-
-
-            $('.checkBoxes').each(function(){
-
+            $(".checkBoxes").each(function() {
                 this.checked = false;
-
             });
-
-
         }
-
     });
-
-
-
-
 
     /**************** User Profile **********************/
 
-
-
-    var panels = $('.user-infos');
-    var panelsButton = $('.dropdown-user');
+    var panels = $(".user-infos");
+    var panelsButton = $(".dropdown-user");
     panels.hide();
 
     //Click dropdown
     panelsButton.click(function() {
         //get data-for attribute
-        var dataFor = $(this).attr('data-for');
+        var dataFor = $(this).attr("data-for");
         var idFor = $(dataFor);
 
         //current button
         var currentButton = $(this);
         idFor.slideToggle(400, function() {
             //Completed slidetoggle
-            if(idFor.is(':visible'))
-            {
-                currentButton.html('<i class="glyphicon glyphicon-chevron-up text-muted"></i>');
+            if (idFor.is(":visible")) {
+                currentButton.html(
+                    '<i class="glyphicon glyphicon-chevron-up text-muted"></i>'
+                );
+            } else {
+                currentButton.html(
+                    '<i class="glyphicon glyphicon-chevron-down text-muted"></i>'
+                );
             }
-            else
-            {
-                currentButton.html('<i class="glyphicon glyphicon-chevron-down text-muted"></i>');
-            }
-        })
+        });
     });
-
 
     $('[data-toggle="tooltip"]').tooltip();
 
@@ -2547,10 +2560,4 @@ $(document).ready(function(){
     //    e.preventDefault();
     //    alert("This is a demo.\n :-)");
     //});
-
-
-
-
-
-
 });
