@@ -26,7 +26,7 @@
                     <th scope="row">{{$review->id}}</th>
                     <td>{{$review->author}}</td>
                     <td>{{$review->email}}</td>
-                    <td>{{$review->body}}</td>
+                    <td>{{$review->description}}</td>
                     <td><a href="/product/{{$review->product_id}}" class="btn btn-outline-info">View Product</a></td>
                     <td><a href="/admin/review/replies/{{$review->id}}" class="btn btn-outline-primary">View Replies</a></td>
                     <td>

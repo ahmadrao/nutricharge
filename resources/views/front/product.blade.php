@@ -31,19 +31,24 @@
         <div class="col-md-6">
             <!-- Preview Image -->
             <img class="img-responsive" style="margin-left: auto; margin-right: auto;" src="{{$product->photo ? $product->photo->file : 'http://placehold.it/700x200'}}" alt="">
-            @if($pics)
-                @foreach($pics as $pic)
-                    <div class="col-md-4">
-                        <img class="img-responsive" style="" src="{{$pic->file}}" alt="">
-                    </div>
-                @endforeach
-            @endif
+            <div>
+                @if($pics)
+                    @foreach($pics as $pic)
+                        <div class="col-md-4">
+                            <img class="img-responsive" style="" src="{{$pic->file}}" alt="">
+                        </div>
+                    @endforeach
+                @endif
+            </div>
 
-            @if($videos) 
-                @foreach($videos as $video)
-                    <iframe width="40%" height="40%" src="{{ $video }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                @endforeach
-            @endif
+            
+            <div>
+                @if($videos) 
+                    @foreach($videos as $video)
+                        <iframe width="40%" height="40%" src="{{ $video }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    @endforeach
+                @endif
+            </div>
         </div>
         <div class="col-md-6">
             <!-- Title -->
@@ -67,6 +72,9 @@
                     </div>
                 @endforeach
             </ul>
+
+            <br>
+            
             
             <h3>Best For(Age Range) </h3>
             <ul> 
@@ -76,6 +84,8 @@
                     </div>
                 @endforeach
             </ul>
+
+            <br>
             
             <h3>Want to Overcome </h3>
             <ul> 
@@ -107,6 +117,9 @@
 
     <!--  Review Section -->
     @include('includes.front.review_section')
+
+    <!-- Related Products -->
+    @include('includes.front.related_products')
 
     
 

@@ -37,4 +37,7 @@
             <!-- /.well -->
     @endif
 
+    <!--Sidebar Product -->
+    @include('includes.front.sidebar_products')
+
 </div>

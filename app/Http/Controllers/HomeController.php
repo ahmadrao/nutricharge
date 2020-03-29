@@ -41,6 +41,8 @@ class HomeController extends Controller
         return view('front.home', compact('products', 'searchTerm', 'categories'));
     }
 
+    
+
     public function store(OrdersRequest $request)
     {
         Order::create($request->all());

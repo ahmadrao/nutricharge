@@ -137,9 +137,20 @@ class AdminProductsController extends Controller
         return redirect('/admin/products');
     }
 
+
+
+
+
+
     public function product($slug)
     {
         $product = Product::findBySlugOrFail($slug);
+
+        $category_id = $product['category_id'];
+        $related_products = Product::where('category_id', '=', $category_id)->where('slug', '!=', $slug)->get();
+        $sidebar_products = Product::where('category_id', '!=', $category_id)->get();
+        
+
         $product['related_pics_ids'] = explode(",", $product['related_pics_ids']);
         $product['related_video_links'] = explode(",", $product['related_video_links']);
         $genders = explode(",", $product['gender']);
@@ -174,7 +185,7 @@ class AdminProductsController extends Controller
         $reviews = $product->reviews()->whereIsActive(1)->get();
         $categories = Category::all();
 
-        return view('front.product', compact('product', 'reviews', 'categories', 'pics', 'videos', 'genders', 'age_ranges', 'selected_product_goals'));
+        return view('front.product', compact('product', 'reviews', 'categories', 'pics', 'videos', 'genders', 'age_ranges', 'selected_product_goals', 'related_products', 'sidebar_products'));
     }
 
 
