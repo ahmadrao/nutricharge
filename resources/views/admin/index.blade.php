@@ -15,10 +15,10 @@
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ["Products", "Categories", "Reviews"],
+                labels: ["Products", "Orders", "Reviews"],
                 datasets: [{
                     label: 'Data of CMS',
-                    data: [{{$productsCount}},{{$categoriesCount}}, {{$reviewsCount}}],
+                    data: [{{$productsCount}},{{$ordersCount}}, {{$reviewsCount}}],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
