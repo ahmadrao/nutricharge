@@ -10,6 +10,7 @@
     <meta name="author" content="">
 
     <title>Nutricharge</title>
+    <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" type="image/x-icon">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="{{asset('css/libs.css')}}">

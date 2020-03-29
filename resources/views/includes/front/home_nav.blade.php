@@ -9,7 +9,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Nutricharge</a>
+            <a class="navbar-brand" style="padding: 2px 2px;" href="/">
+                <img src="{{ asset('images/Nutricharge-New-Logo.gif') }}" class="img-responsive" style="max-height: 96% !important;">
+            </a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
