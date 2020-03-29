@@ -24,6 +24,7 @@ class Product extends Model
         'related_video_links',
         'slug',
         'gender',
+        'video_category_id',
         'age_range',
         'selected_product_goals'
     ];

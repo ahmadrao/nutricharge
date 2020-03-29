@@ -13,13 +13,16 @@
     <div class="row">
 
         <!--  Post Content Column -->
-        <div class="col-md-9">
+        <div class="col-md-8">
 
             <!--  Post -->
 
             @yield('content')
+            
 
         </div>
+        
+        
 
         <!--  Sidebar Widgets Column -->
         @include('includes.front.home_sidebar')

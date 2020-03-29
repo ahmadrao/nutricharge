@@ -15,6 +15,11 @@
             {!! Form::label('category_id', 'Category:') !!}
             {!! Form::select('category_id', $categories, null, ['class'=>'form-control']) !!}
         </div>
+        
+        <div class="form-group">
+            {!! Form::label('video_category_id', 'Video Category:') !!}
+            {!! Form::select('video_category_id', $video_categories, null, ['class'=>'form-control']) !!}
+        </div>
 
         <div class="form-group">
             {!! Form::label('photo_id', 'Profile Photo:') !!}

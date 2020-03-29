@@ -132,6 +132,26 @@
                     <!-- /.nav-second-level -->
                 </li>
                 
+                <!-- Videos -->
+                <li>
+                    <a href="#"><i class="fa fa-file-video-o fa-fw"></i>&nbsp;Videos<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="/admin/videos">All Videos</a>
+                        </li>
+
+                        <li>
+                            <a href="/admin/videos/create">Create Video</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/admin/videos/categories">Video Categories</a>
+                        </li>
+
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
+                
                 <li>
                     <a href="#"><i class="fa fa-truck fa-fw"></i>&nbsp;Orders<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
@@ -145,6 +165,10 @@
 
                     </ul>
                     <!-- /.nav-second-level -->
+                </li>
+
+                <li>
+                    <a href="/admin/contacts"><i class="fa fa-phone fa-fw"></i>&nbsp;Contacts</a>
                 </li>
 
             </ul>

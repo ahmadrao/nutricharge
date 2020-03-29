@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\ProductGoal;
+use App\VideoCategory;
 use App\Http\Requests\ProductsCreateRequest;
 use App\Http\Requests\ProductUpdateRequest;
 use App\Photo;
 use App\Product;
+use App\Video;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -33,8 +35,9 @@ class AdminProductsController extends Controller
     public function create()
     {
         $categories = Category::pluck('name', 'id');
+        $video_categories = VideoCategory::pluck('name', 'id');
         $product_goals = ProductGoal::all();;
-        return view('admin.products.create', compact('categories', 'product_goals'));
+        return view('admin.products.create', compact('categories', 'product_goals', 'video_categories'));
     }
 
     /**
@@ -87,12 +90,13 @@ class AdminProductsController extends Controller
     {
         $product = Product::findOrFail($id);
         $categories = Category::pluck('name', 'id');
+        $video_categories = VideoCategory::pluck('name', 'id');
         $product_goals = ProductGoal::all();;
         $gender = explode(",", $product->gender);
         $age_range = explode(",", $product->age_range);
         $selected_product_goals = explode(",", $product->selected_product_goals);
 
-        return view('admin.products.edit', compact('product', 'categories', 'gender', 'age_range', 'selected_product_goals', 'product_goals'));
+        return view('admin.products.edit', compact('product', 'categories', 'gender', 'age_range', 'selected_product_goals', 'product_goals', 'video_categories'));
     }
 
     /**
@@ -144,11 +148,18 @@ class AdminProductsController extends Controller
 
     public function product($slug)
     {
+        $video_categories = VideoCategory::all();
         $product = Product::findBySlugOrFail($slug);
+
+        // Product Related Videos
+        $video_category_id = $product['video_category_id'];
+        $related_videos = Video::where('video_category_id', '=', $video_category_id)->take(2)->get();
+
+
 
         $category_id = $product['category_id'];
         $related_products = Product::where('category_id', '=', $category_id)->where('slug', '!=', $slug)->get();
-        $sidebar_products = Product::where('category_id', '!=', $category_id)->get();
+        $sidebar_products = Product::where('category_id', '!=', $category_id)->take(8)->get();
         
 
         $product['related_pics_ids'] = explode(",", $product['related_pics_ids']);
@@ -185,7 +196,7 @@ class AdminProductsController extends Controller
         $reviews = $product->reviews()->whereIsActive(1)->get();
         $categories = Category::all();
 
-        return view('front.product', compact('product', 'reviews', 'categories', 'pics', 'videos', 'genders', 'age_ranges', 'selected_product_goals', 'related_products', 'sidebar_products'));
+        return view('front.product', compact('product', 'reviews', 'categories', 'pics', 'videos', 'genders', 'age_ranges', 'selected_product_goals', 'related_products', 'sidebar_products', 'video_categories', 'related_videos'));
     }
 
 

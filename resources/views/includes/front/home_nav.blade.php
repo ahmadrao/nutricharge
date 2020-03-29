@@ -13,7 +13,21 @@
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-left">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Videos
+                    <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        @if($video_categories)
+                            @foreach($video_categories as $category)
+                                <li><a href="/videos/{{ $category->slug }}">{{ $category->name }}</a></li>
+                            @endforeach
+                        @endif
+                        
+                    </ul>
+                </li>
+                <li><a href="/contact-us">Contact Us</a></li>
+                <li><a href="/about-us">About Us</a></li>
                 @if(Auth::guest())
                     
                 @else
@@ -50,6 +64,10 @@
                     </li>
                 @endif
             </ul>
+            {!! Form::open(['method'=>'GET', 'action'=>'HomeController@search', 'class'=>'form-inline my-lg-0', 'style'=>'margin-top: 10px;']) !!}
+                <input class="form-control mr-sm-2" type="search"  name="searchTerm" placeholder="Search Product" value="{{ isset($searchTerm) ? $searchTerm : '' }}" aria-label="Search">
+                <button class="btn btn-outline-success my-sm-0" type="submit">Search</button>
+            {!! Form::close() !!}
         </div>
         <!-- /.navbar-collapse -->
     </div>

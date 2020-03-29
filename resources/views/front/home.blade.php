@@ -48,39 +48,32 @@
     
 
     <div class="row">
-        
-        <!--  Entries Column -->
-        <div class="col-md-9">
 
-            <h1>Nutricharge Products</h1>
+        <h1>Nutricharge Products</h1>
 
 
-            <!--  Products  -->
-            @if($products)
-                @foreach($products as $product)
-                    <a href="/product/{{$product->slug}}">
-                        <div class="col-md-4 text-center" >
-                            
-                            
-                            <img class="img-responsive" style="margin-left: auto; margin-right: auto;" src="{{$product->photo ? $product->photo->file : 'http://placehold.it/700x200'}}" alt="">
-                            <h4>
-                                {{$product->title}}
-                            </h4>
-                            <p>Rs. {{ $product->price }}</p>
+        <!--  Products  -->
+        @if($products)
+            @foreach($products as $product)
+                <a href="/product/{{$product->slug}}">
+                    <div class="col-md-3 text-center" >
+                        
+                        
+                        <img class="img-responsive" style="margin-left: auto; margin-right: auto;" src="{{$product->photo ? $product->photo->file : 'http://placehold.it/700x200'}}" alt="">
+                        <h4>
+                            {{$product->title}}
+                        </h4>
+                        <p>Rs. {{ $product->price }}</p>
 
-                        </div>
-                    </a>
-                @endforeach
-            @else
-                <h2>No Products</h2>
-        @endif
-        <!-- Pagination -->
+                    </div>
+                </a>
+            @endforeach
+        @else
+            <h2>No Products</h2>
+    @endif
+    <!-- Pagination -->
 
 
-        </div>
-
-        <!--  Sidebar Widgets Column -->
-        @include('includes.front.home_sidebar')
 
 
     </div>
@@ -111,12 +104,12 @@
 
 <script>
 
-    $('#search-goal').on('change', function(e) {
-        console.log(e);
-        var age_range = e.target.value;
+    // $('#search-goal').on('change', function(e) {
+    //     console.log(e);
+    //     var age_range = e.target.value;
         
-        console.log(age_range);
-    })
+    //     console.log(age_range);
+    // })
 
 
 </script>

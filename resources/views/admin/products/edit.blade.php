@@ -30,6 +30,11 @@
             </div>
 
             <div class="form-group">
+                {!! Form::label('video_category_id', 'Video Category:') !!}
+                {!! Form::select('video_category_id', $video_categories, null, ['class'=>'form-control']) !!}
+            </div>
+
+            <div class="form-group">
                 {!! Form::label('related_pics_ids', 'Related Pics:') !!}
                 {!! Form::text('related_pics_ids', null, ['class'=>'form-control', 'placeholder' => 'Enter More than one Pic IDs by separating them with a ,']) !!}
             </div>
