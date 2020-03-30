@@ -18,7 +18,6 @@ mix.js('resources/js/app.js', 'public/js')
 mix.styles([
 
     'resources/assets/css/libs/product.css',
-    'resources/assets/css/libs/footer.css',
     'resources/assets/css/libs/frequently_asked_questions.css',
     'resources/assets/css/libs/bootstrap.css',
     'resources/assets/css/libs/font-awesome.css',
@@ -28,6 +27,8 @@ mix.styles([
 
 
 ], 'public/css/libs.css');
+
+mix.styles('resources/assets/css/libs/footer.css','public/css/footer.css');
 
 mix.scripts([
 

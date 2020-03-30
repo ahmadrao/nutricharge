@@ -28,7 +28,7 @@
 
 </head>
 
-<body id="admin-page" style="margin-top: -70px;">
+<body id="admin-page">
 
 <div id="wrapper">
 
