@@ -10,7 +10,7 @@
 
     <!-- Page Content -->
     <div class="container">
-        <div style="text-align:center">
+        <div class="row text-center">
             <h2>Contact Us</h2>
             <p>Swing by for a cup of coffee, or leave us a message:</p>
         </div>
@@ -55,6 +55,9 @@
                     <input type="submit" class="btn btn-success btn-send" value="Send message">
                 </div>
     {!! Form::close() !!}
+
+        <!-- Footer -->
+        @include('includes.front.footer')
 
     </div>
     <!-- /.container -->

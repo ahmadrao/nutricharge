@@ -1,25 +1,6 @@
 @extends('layouts.single-product')
 
-@section('styles')
 
-<!-- Scripts -->
-    <style>
-    .animated {
-        -webkit-transition: height 0.2s;
-        -moz-transition: height 0.2s;
-        transition: height 0.2s;
-    }
-
-    .stars
-    {
-        margin: 20px 0;
-        font-size: 24px;
-        color: #d17581;
-    }
-    </style>
-
-
-@endsection
 
 @section('content')
 
@@ -31,21 +12,23 @@
         <div class="col-md-6">
             <!-- Preview Image -->
             <img class="img-responsive" style="margin-left: auto; margin-right: auto;" src="{{$product->photo ? $product->photo->file : 'http://placehold.it/700x200'}}" alt="">
+            <br><br><br>
             <div>
                 @if($pics)
                     @foreach($pics as $pic)
-                        <div class="col-md-4">
+                        <div class="col-md-5" style="margin-right: 10px;">
                             <img class="img-responsive" style="" src="{{$pic->file}}" alt="">
                         </div>
                     @endforeach
                 @endif
             </div>
 
+            <br><br><br>
             
             <div>
                 @if($videos) 
                     @foreach($videos as $video)
-                        <iframe width="40%" height="40%" src="{{ $video }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe width="40%" height="40%" style="margin-right: 10px;" src="{{ $video }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     @endforeach
                 @endif
             </div>
@@ -65,36 +48,30 @@
             <p class="lead">{!! $product->details !!}</p>
 
             <h3>Best For(Gender) </h3>
-            <ul> 
-                @foreach($genders as $gender)
-                    <div class="col-md-6">
-                        <li> {{ $gender}} </li>
-                    </div>
-                @endforeach
-            </ul>
+            @foreach($genders as $gender)
+                <div class="col-md-6">
+                    <i class="fa fa-check-square" aria-hidden="true"></i>&nbsp;&nbsp; {{ $gender}}
+                </div>
+            @endforeach
 
             <br>
             
             
-            <h3>Best For(Age Range) </h3>
-            <ul> 
+            <h3>Best For(Age Range) </h3> 
                 @foreach($age_ranges as $age_range)
                     <div class="col-md-6">
-                        <li> {{ $age_range}} </li>
+                        <i class="fa fa-check-square" aria-hidden="true"></i>&nbsp;&nbsp;{{ $age_range}}
                     </div>
                 @endforeach
-            </ul>
 
             <br>
             
             <h3>Want to Overcome </h3>
-            <ul> 
-                @foreach($selected_product_goals as $selected_product_goal)
-                    <div class="col-md-6">
-                        <li> {{ $selected_product_goal}} </li>
-                    </div>
-                @endforeach
-            </ul>
+            @foreach($selected_product_goals as $selected_product_goal)
+                <div class="col-md-6">
+                    <i class="fa fa-check-square" aria-hidden="true"></i>&nbsp;&nbsp;{{ $selected_product_goal}}
+                </div>
+            @endforeach
 
 
             <br>
@@ -107,16 +84,29 @@
 
         </div>
     </div>
-        <div class="row">
-            <h1>Description</h1>
-            <!-- Product Details -->
-            <p class="lead">{!! $product->description !!}</p>
+        <div id="exTab2" class="row">	
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a  href="#1" data-toggle="tab">Description</a>
+                </li>
+                <li>
+                    <a href="#2" data-toggle="tab">Reviews</a>
+                </li>                       
+            </ul>
+            <div class="tab-content ">
+                <div class="tab-pane active" id="1">
+                    <!-- Product Description -->
+                    <p class="lead">{!! $product->description !!}</p>
+                </div>
+                <div class="tab-pane" id="2">
+                    <!--  Review Section -->
+                    @include('includes.front.review_section')
+                </div>
+            </div>
         </div>
 
 
 
-    <!--  Review Section -->
-    @include('includes.front.review_section')
 
     <!-- Related Products -->
     @include('includes.front.related_products')

@@ -79,5 +79,11 @@ class HomeController extends Controller
     {
         $video_categories = VideoCategory::all();
         return view('front.about_us', compact('video_categories'));
+    } 
+    
+    public function faq()
+    {
+        $video_categories = VideoCategory::all();
+        return view('front.frequently_asked_questions', compact('video_categories'));
     }
 }

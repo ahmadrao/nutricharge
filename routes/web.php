@@ -18,6 +18,7 @@ Route::post('/product/review', 'HomeController@review');
 Route::get('/contact-us', 'HomeController@showContactPage');
 Route::post('/contact-us', 'HomeController@submitContactPage');
 Route::get('/about-us', 'HomeController@aboutUs');
+Route::get('/frequently-asked-questions', 'HomeController@faq');
 
 
 

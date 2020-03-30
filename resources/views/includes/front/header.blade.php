@@ -12,9 +12,12 @@
     <title>Nutricharge</title>
     <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" type="image/x-icon">
 
+    
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="{{asset('css/libs.css')}}">
+    <link rel="stylesheet" href="{{asset('css/footer.css')}}">
     @yield('styles')
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

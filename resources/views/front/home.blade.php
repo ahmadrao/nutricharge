@@ -1,6 +1,7 @@
 <!-- Header -->
 @include('includes.front.header')
 
+
 <body>
 
 <!-- Navigation -->
@@ -56,18 +57,30 @@
         <!--  Products  -->
         @if($products)
             @foreach($products as $product)
-                <a href="/product/{{$product->slug}}">
-                    <div class="col-md-3 text-center" >
-                        
-                        
-                        <img class="img-responsive" style="margin-left: auto; margin-right: auto;" src="{{$product->photo ? $product->photo->file : 'http://placehold.it/700x200'}}" alt="">
-                        <h4>
-                            {{$product->title}}
-                        </h4>
-                        <p>Rs. {{ $product->price }}</p>
-
-                    </div>
-                </a>
+                <div class="col-md-3">
+                    <a href="/product/{{$product->slug}}" style="color: inherit;">
+                        <figure class="card card-product">
+                            <div class="img-wrap"> 
+                                <img src="{{$product->photo ? $product->photo->file : 'http://placehold.it/700x200'}}">
+                            </div>
+                            <figcaption class="info-wrap">
+                                <h6 class="title text-dots">{{$product->title}}</h6>
+                                <div class="action-wrap">
+                                    <div class="price-wrap h5">
+                                        <span class="price-new">Rs. {{ $product->price }}</span>
+                                        <span class="">
+                                            @if($product->getStarRating())
+                                                @for ($i=1; $i <= 5 ; $i++)
+                                                    <span class="glyphicon glyphicon-star{{ ($i <= $product->getStarRating()) ? '' : '-empty'}}"></span>
+                                                @endfor
+                                            @endif
+                                        </span>
+                                    </div> 
+                                </div> <!-- action-wrap -->
+                            </figcaption>
+                        </figure> <!-- card // -->
+                    </a>
+                </div>
             @endforeach
         @else
             <h2>No Products</h2>
