@@ -56,11 +56,15 @@
                 </div>
     {!! Form::close() !!}
 
-        <!-- Footer -->
-        @include('includes.front.footer')
+
+        
 
     </div>
     <!-- /.container -->
+    <br><br><br>
+
+    <!-- Footer -->
+    @include('includes.front.footer')
 
 
     <!-- jQuery -->
