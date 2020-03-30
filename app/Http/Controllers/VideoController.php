@@ -100,7 +100,7 @@ class VideoController extends Controller
         $category = VideoCategory::findBySlugOrFail($slug);
         $category_name = $category['name'];
         $id = $category['id'];
-        $videos = Video::where('category_id', '=', $id)->get();
+        $videos = Video::where('video_category_id', '=', $id)->get();
 
         return view('front.videos', compact('video_categories', 'videos', 'category_name'));
         

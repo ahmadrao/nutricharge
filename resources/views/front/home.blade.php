@@ -45,7 +45,8 @@
 
     </div> --}}
 
-    
+    <!--  Slider -->
+    @include('includes.front.slider')
 
     <div class="row">
 
