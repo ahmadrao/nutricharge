@@ -39,6 +39,8 @@
             <div class="col-md-4">
             </div>
         </div>
+
+        <br><br><br>
         
          <!-- Footer -->
         @include('includes.front.footer')
