@@ -24,9 +24,9 @@
             </div>
 
             <br><br><br>
-            
+
             <div>
-                @if($videos) 
+                @if($videos)
                     @foreach($videos as $video)
                         <iframe width="40%" height="40%" style="margin-right: 10px;" src="{{ $video }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     @endforeach
@@ -55,9 +55,9 @@
             @endforeach
 
             <br>
-            
-            
-            <h3>Best For(Age Range) </h3> 
+
+
+            <h3>Best For(Age Range) </h3>
                 @foreach($age_ranges as $age_range)
                     <div class="col-md-6">
                         <i class="fa fa-check-square" aria-hidden="true"></i>&nbsp;&nbsp;{{ $age_range}}
@@ -65,7 +65,7 @@
                 @endforeach
 
             <br>
-            
+
             <h3>Want to Overcome </h3>
             @foreach($selected_product_goals as $selected_product_goal)
                 <div class="col-md-6">
@@ -84,14 +84,14 @@
 
         </div>
     </div>
-        <div id="exTab2" class="row">	
+        <div id="exTab2" class="row">
             <ul class="nav nav-tabs">
                 <li class="active">
                     <a  href="#1" data-toggle="tab">Description</a>
                 </li>
                 <li>
                     <a href="#2" data-toggle="tab">Reviews</a>
-                </li>                       
+                </li>
             </ul>
             <div class="tab-content ">
                 <div class="tab-pane active" id="1">
@@ -111,9 +111,9 @@
     <!-- Related Products -->
     @include('includes.front.related_products')
 
-    
 
-    
+
+
 
 @endsection
 
@@ -135,10 +135,10 @@
 
 
 
-    
 
 
 
 
-    
+
+
 

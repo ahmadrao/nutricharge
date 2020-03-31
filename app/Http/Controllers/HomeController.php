@@ -47,18 +47,19 @@ class HomeController extends Controller
         return view('front.home', compact('products', 'searchTerm', 'categories', 'video_categories'));
     }
 
-    
 
+    // store method for Receiving orders
     public function store(OrdersRequest $request)
     {
         Order::create($request->all());
-
+        notify()->success("Your Order is Successfully Submitted", "Success", "topRight");
         return back();
     }
 
     public function review(Request $request)
     {
         Review::create($request->all());
+        notify()->success("Your Review if successfully submitted", "Success", "topRight");
         return back();
     }
 
@@ -72,6 +73,7 @@ class HomeController extends Controller
     {
         Contact::create($request->all());
         $video_categories = VideoCategory::all();
+        notify()->success("Your Message is successfully Sent", "Success", "topRight");
         return view('front.contact', compact('video_categories'));
     }
 
@@ -79,8 +81,8 @@ class HomeController extends Controller
     {
         $video_categories = VideoCategory::all();
         return view('front.about_us', compact('video_categories'));
-    } 
-    
+    }
+
     public function faq()
     {
         $video_categories = VideoCategory::all();

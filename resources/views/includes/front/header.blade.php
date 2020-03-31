@@ -12,7 +12,7 @@
     <title>Nutricharge</title>
     <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" type="image/x-icon">
 
-    
+     <link href="{{ asset('css/iziToast.css') }}" rel="stylesheet">
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="{{asset('css/libs.css')}}">
     <link rel="stylesheet" href="{{asset('css/footer.css')}}">

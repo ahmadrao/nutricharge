@@ -11,22 +11,22 @@
 <div class="modal fade" id="reviewModal">
     <div class="modal-dialog">
         <div class="modal-content">
-      
+
             <!-- Modal Header -->
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Review</h4>
             </div>
-            
+
             <!-- Modal body -->
             <div class="modal-body">
                 {!! Form::open(['method'=>'POST', 'action'=>'HomeController@review']) !!}
 
                     <div class="form-group">
                         <label for="">Rate It</label>
-                        <input id="ratings-hidden" name="rating" type="hidden"> 
+                        <input id="ratings-hidden" required name="rating" type="hidden">
                         <div class="stars starrr" data-rating="0"></div>
-                        
+
                     </div>
 
                     <div class="form-group">
@@ -35,6 +35,7 @@
                             type="text"
                             class="form-control"
                             name="headline"
+                            required
                             id=""
                             placeholder="Give your Review a Headline"
                         />
@@ -45,7 +46,8 @@
                         <input
                             type="text"
                             class="form-control"
-                            name="author""
+                            name="author"
+                            required
                             id=""
                             placeholder="Your Name"
                         />
@@ -56,6 +58,7 @@
                             type="text"
                             class="form-control"
                             name="email"
+                            required
                             id=""
                             placeholder="Your Email"
                         />
@@ -65,7 +68,7 @@
                     <div class="form-group">
 
                         {!! Form::label('description', 'Description:') !!}
-                        {!! Form::textarea('description', null, ['class'=>'form-control', 'rows'=>3, 'placeholder' => 'Write a Descriptive Review']) !!}
+                        {!! Form::textarea('description', null, ['class'=>'form-control', 'rows'=>3, 'placeholder' => 'Write a Descriptive Review', 'required']) !!}
                     </div>
 
                     <div class="modal-footer">
@@ -73,7 +76,7 @@
                     </div>
 
                 {!! Form::close() !!}
-            </div>     
+            </div>
         </div>
     </div>
 </div>
@@ -94,9 +97,9 @@
                 <span class="glyphicon glyphicon-star{{ ($i <= $review->rating) ? '' : '-empty'}}"></span>
                 @endfor
 
-                {{ $review->author ? $review->author : 'Anonymous'}} 
+                {{ $review->author ? $review->author : 'Anonymous'}}
                 <br>
-                <span class="pull-right">{{$review->created_at->diffForHumans()}}</span> 
+                <span class="pull-right">{{$review->created_at->diffForHumans()}}</span>
 
                 <p>{{{$review->description}}}</p>
                 </div>

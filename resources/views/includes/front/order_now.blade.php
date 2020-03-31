@@ -16,19 +16,19 @@
 <div class="modal fade" id="orderModal">
     <div class="modal-dialog">
         <div class="modal-content">
-      
+
             <!-- Modal Header -->
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Order Now</h4>
             </div>
-            
+
             <!-- Modal body -->
             <div class="modal-body">
                 {!! Form::open(['method'=>'POST', 'action'=>'HomeController@store', $product->id]) !!}
                     <div class="form-group">
                         {!! Form::label('name', 'Name:') !!}
-                        {!! Form::text('name', null, ['class'=>'form-control', 'placeholder' => '*Enter Your Full Name']) !!}
+                        {!! Form::text('name', null, ['class'=>'form-control', 'placeholder' => '*Enter Your Full Name', 'required']) !!}
                     </div>
 
                     <div class="form-group">
@@ -36,16 +36,16 @@
                         {!! Form::email('email',  null, ['class'=>'form-control', 'placeholder' => '*Enter Your Email Address']) !!}
                     </div>
 
-                                            
+
                     <div class="form-group">
-                        {!! Form::label('phone_number', 'Phone Number:') !!}
-                        {!! Form::number('phone_number', null, ['class'=>'form-control', 'placeholder' => '*Enter Your Phone Number']) !!}
+                        {!! Form::label('phone_number', 'Mobile Number:') !!}
+                        {!! Form::number('phone_number', null, ['class'=>'form-control', 'placeholder' => '*Enter Your Mobile Number 91xxxxxxxxxx', 'required']) !!}
                     </div>
 
                     <input type="hidden" name="product_id" value="{{$product->id}}">
                     <div class="form-group">
                         {!! Form::label('address', 'Address:') !!}
-                        {!! Form::textarea('address', null, ['class'=>'form-control', 'placeholder' => '*Enter Your Full Address']) !!}
+                        {!! Form::textarea('address', null, ['class'=>'form-control', 'placeholder' => '*Enter Your Full Address', 'required']) !!}
                     </div>
 
                     <div class="modal-footer">
@@ -53,7 +53,7 @@
                     </div>
 
                 {!! Form::close() !!}
-            </div>     
+            </div>
         </div>
     </div>
 </div>

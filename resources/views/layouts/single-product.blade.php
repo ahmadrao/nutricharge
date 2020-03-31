@@ -18,11 +18,11 @@
             <!--  Post -->
 
             @yield('content')
-            
+
 
         </div>
-        
-        
+
+
 
         <!--  Sidebar Widgets Column -->
         @include('includes.front.home_sidebar')
@@ -35,15 +35,14 @@
 
     <!-- Footer -->
     @include('includes.front.footer')
-    
+
 
 </div>
 <!-- /.container -->
 
 
-<!-- jQuery -->
-<script src="{{asset('js/libs.js')}}"></script>
-@yield('scripts')
+@include('includes.front.scripts')
+
 
 
 </body>
