@@ -61,7 +61,7 @@
                     <a href="/products/{{$product->slug}}" style="color: inherit;">
                         <figure class="card card-product">
                             <div class="img-wrap">
-                                <img src="{{$product->pic ? $product->pic->file : 'http://placehold.it/700x200'}}">
+                                <img src="{{$product->photo ? $product->photo->file : 'http://placehold.it/700x200'}}">
                             </div>
                             <figcaption class="info-wrap">
                                 <h6 class="title text-dots">{{$product->title}}</h6>

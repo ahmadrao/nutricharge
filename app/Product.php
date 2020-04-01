@@ -16,6 +16,7 @@ class Product extends Model
         'user_id',
         'category_id',
         'photo_id',
+        'pic_id',
         'title',
         'details',
         'description',
@@ -66,6 +67,11 @@ class Product extends Model
     public function photo()
     {
         return $this->belongsTo('App\Photo');
+    }
+
+    public function pic()
+    {
+        return $this->belongsTo('App\Pic');
     }
 
     // public function related_photos()

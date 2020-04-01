@@ -31,25 +31,37 @@ Route::get('/videos/{slug}', 'VideoController@videos');
 
 Auth::routes();
 
-Route::group(['middleware' => 'admin'], function () {
 
-    Route::get('/admin', 'AdminController@index');
+
+
+// If Admin Visiting the Admin Page is Super Admin
+Route::group(['middleware' => 'admin'], function () {
 
     Route::resource('/admin/users', 'AdminUsersController');
     Route::resource('/admin/products', 'AdminProductsController');
     Route::resource('/admin/categories', 'AdminCategoriesController');
     Route::resource('/admin/videos/categories', 'VideoCategoryController');
     Route::resource('/admin/product_goals', 'AdminProductGoalsController');
-    Route::get('/admin/orders/delivered', 'OrderController@delivered');
     Route::get('/admin/contacts', 'ContactController@index');
-    Route::resource('/admin/orders', 'OrderController');
 
     Route::resource('/admin/media', 'AdminMediaController');
+    Route::resource('/admin/pic', 'PicController');
     Route::resource('/admin/videos', 'VideoController');
     Route::get('/admin/delete/media', 'AdminMediaController@deleteMedia');
     Route::resource('/admin/reviews', 'ProductReviewsController');
     Route::resource('/admin/review/replies', 'ReviewRepliesController');
 });
+
+// If Admin Visiting the Admin Page is Simple User
+Route::group(['middleware' => 'admin' || ''], function () {
+
+    Route::get('/admin', 'AdminController@index');
+    Route::get('/admin/orders/delivered', 'OrderController@delivered');
+    Route::resource('/admin/orders', 'OrderController');
+});
+
+
+
 
 Route::group(['middleware' => 'auth'], function () {
 

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddVideoCategoryIdToProductsTable extends Migration
+class CreatePicsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class AddVideoCategoryIdToProductsTable extends Migration
      */
     public function up()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->integer('video_category_id')->unsigned()->index()->nullable();
-
+        Schema::create('pics', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('file');
+            $table->timestamps();
         });
     }
 
@@ -26,8 +27,6 @@ class AddVideoCategoryIdToProductsTable extends Migration
      */
     public function down()
     {
-        Schema::table('products', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('pics');
     }
 }

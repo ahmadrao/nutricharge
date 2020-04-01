@@ -8,6 +8,7 @@ use App\VideoCategory;
 use App\Http\Requests\ProductsCreateRequest;
 use App\Http\Requests\ProductUpdateRequest;
 use App\Photo;
+use App\Pic;
 use App\Product;
 use App\Video;
 use Illuminate\Http\Request;
@@ -55,6 +56,7 @@ class AdminProductsController extends Controller
         $input['selected_product_goals'] = implode(",", $input['selected_product_goals']);
         $input['age_range'] = implode(",", $input['age_range']);
 
+        // Products and Product Page Pic
         if ($file = $request->file('photo_id')) {
 
             $name = time() . $file->getClientOriginalName();
@@ -63,6 +65,18 @@ class AdminProductsController extends Controller
             $photo = Photo::create(['file' => $name]);
             $input['photo_id'] = $photo->id;
         }
+
+        // Index Page Pic
+        if ($file = $request->file('pic_id')) {
+
+            $name = time() . $file->getClientOriginalName();
+            $file->move('images', $name);
+
+            $pic = Pic::create(['file' => $name]);
+            $input['pic_id'] = $pic->id;
+        }
+
+
 
         $user->products()->create($input);
 
@@ -113,6 +127,7 @@ class AdminProductsController extends Controller
         $input['age_range'] = implode(",", $input['age_range']);
         $input['selected_product_goals'] = implode(",", $input['selected_product_goals']);
 
+        // Products and Product Page Photos
         if ($file = $request->file('photo_id')) {
 
             $name = time() . $file->getClientOriginalName();
@@ -120,6 +135,17 @@ class AdminProductsController extends Controller
 
             $photo = Photo::create(['file' => $name]);
             $input['photo_id'] = $photo->id;
+        }
+
+        // Index Page Pic
+        // Products and Product Page Photos
+        if ($file = $request->file('pic_id')) {
+
+            $name = time() . $file->getClientOriginalName();
+            $file->move('images', $name);
+
+            $pic = Pic::create(['file' => $name]);
+            $input['pic_id'] = $pic->id;
         }
 
         Auth::user()->products()->whereId($id)->first()->update($input);

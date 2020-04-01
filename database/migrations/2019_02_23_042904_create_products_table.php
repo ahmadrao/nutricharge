@@ -18,9 +18,11 @@ class CreateProductsTable extends Migration
             $table->integer('user_id')->unsigned()->index()->nullable();
             $table->integer('category_id')->unsigned()->index()->nullable();
             $table->integer('photo_id')->unsigned()->index()->nullable();
+            $table->integer('pic_id')->unsigned()->index()->nullable();
             $table->string('title');
             $table->string('related_pics_ids');
             $table->string('related_video_links');
+            $table->integer('video_category_id')->unsigned()->index()->nullable();
             $table->integer('price');
 
             $table->string('gender');

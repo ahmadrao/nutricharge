@@ -35,6 +35,11 @@
             </div>
 
             <div class="form-group">
+                {!! Form::label('pic_id', 'Index Pic:') !!}
+                {!! Form::file('pic_id', null, ['class'=>'form-control']) !!}
+            </div>
+
+            <div class="form-group">
                 {!! Form::label('related_pics_ids', 'Related Pics:') !!}
                 {!! Form::text('related_pics_ids', null, ['class'=>'form-control', 'placeholder' => 'Enter More than one Pic IDs by separating them with a ,']) !!}
             </div>
@@ -43,7 +48,7 @@
                 {!! Form::label('related_video_links', 'Related Videos:') !!}
                 {!! Form::text('related_video_links', null, ['class'=>'form-control', 'placeholder' => 'Enter More than one Video Link by separating them with a ,']) !!}
             </div>
-            
+
             <div class="form-group">
                 {!! Form::label('price', 'Price:') !!}
                 {!! Form::number('price', null, ['class'=>'form-control']) !!}
@@ -81,8 +86,8 @@
                 <label class="form-check-label" for="18 years and above">18 Years and Above</label><br>
             </div>
         </div>
-        
-        
+
+
         {{-- Checkboxes for Goals --}}
         <div class="form-group">
             {!! Form::label('selected_product_goals[]', 'Product Goals:') !!} <br>
@@ -108,7 +113,7 @@
             {!! Form::label('details', 'Details:') !!}
             {!! Form::textarea('details', null, ['class'=>'form-control']) !!}
         </div>
-        
+
         <div class="form-group">
             {!! Form::label('description', 'Description') !!}
             {!! Form::textarea('description', null, ['class'=>'form-control']) !!}
