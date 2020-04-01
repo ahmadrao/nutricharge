@@ -2,14 +2,14 @@
     <h2>Products </h2>
     @foreach($sidebar_products as $product)
         <div class="col-md-12">
-            <a href="/product/{{$product->slug}}" style="color: inherit;">
+            <a href="/products/{{$product->slug}}" style="color: inherit;">
                 <div class="col-md-6">
                     <!-- Title -->
                     <h4 style="margin-left: -28px;">{{$product->title}}</h4>
                     <!-- Product Price -->
                     <h5 style="margin-left: -27px;">Rs. {{ $product->price }}</h5>
-                                      
-                    
+
+
 
                 </div>
 

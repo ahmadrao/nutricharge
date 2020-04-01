@@ -34,8 +34,9 @@ class HomeController extends Controller
     {
         $categories = Category::all();
         $video_categories = VideoCategory::all();
+        $nav_products  = Product::select('title', 'slug')->get();
         $products = Product::paginate(5);
-        return view('front.home', compact('products', 'categories', 'video_categories'));
+        return view('front.home', compact('products', 'categories', 'video_categories', 'nav_products'));
     }
 
     public function search(Request $request)
@@ -44,7 +45,8 @@ class HomeController extends Controller
         $categories = Category::all();
         $products = Product::search($searchTerm)->get();
         $video_categories = VideoCategory::all();
-        return view('front.home', compact('products', 'searchTerm', 'categories', 'video_categories'));
+        $nav_products  = Product::select('title', 'slug')->get();
+        return view('front.home', compact('products', 'searchTerm', 'categories', 'video_categories', 'nav_products'));
     }
 
 
@@ -66,26 +68,30 @@ class HomeController extends Controller
     public function showContactPage()
     {
         $video_categories = VideoCategory::all();
-        return view('front.contact', compact('video_categories'));
+        $nav_products  = Product::select('title', 'slug')->get();
+        return view('front.contact', compact('video_categories', 'nav_products'));
     }
 
     public function submitContactPage(ContactRequest $request)
     {
         Contact::create($request->all());
         $video_categories = VideoCategory::all();
+        $nav_products  = Product::select('title', 'slug')->get();
         notify()->success("Your Message is successfully Sent", "Success", "topRight");
-        return view('front.contact', compact('video_categories'));
+        return view('front.contact', compact('video_categories', 'nav_products'));
     }
 
     public function aboutUs()
     {
         $video_categories = VideoCategory::all();
-        return view('front.about_us', compact('video_categories'));
+        $nav_products  = Product::select('title', 'slug')->get();
+        return view('front.about_us', compact('video_categories', 'nav_products'));
     }
 
     public function faq()
     {
         $video_categories = VideoCategory::all();
-        return view('front.frequently_asked_questions', compact('video_categories'));
+        $nav_products  = Product::select('title', 'slug')->get();
+        return view('front.frequently_asked_questions', compact('video_categories', 'nav_products'));
     }
 }

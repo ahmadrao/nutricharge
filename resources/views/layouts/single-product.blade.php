@@ -25,7 +25,7 @@
 
 
         <!--  Sidebar Widgets Column -->
-        @include('includes.front.home_sidebar')
+        @include('includes.front.product.sidebar')
 
 
     </div>

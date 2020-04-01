@@ -30,14 +30,14 @@
                 <tr>
                     <th scope="row">{{$product->id}}</th>
                     <td><a href="/admin/products/{{$product->id}}/edit"><img height="50px" src="{{$product->photo
-                    
-                    
+
+
                      ? $product->photo->file : 'http://placehold.it/400x400'}}" alt=""></a></td>
                     <td>{{$product->user->name}}</td>
                     <td>{{$product->category ? $product->category->name : "Undefined Category"}}</td>
                     <td>{{$product->title}}</td>
                     <td>{{str_limit($product->body, 20)}}</td>
-                    <td><a href="/product/{{$product->slug}}" class="btn btn-success">View Product</a></td>
+                    <td><a href="/products/{{$product->slug}}" class="btn btn-success">View Product</a></td>
                     <td><a href="/admin/reviews/{{$product->id}}" class="btn btn-info">Reviews</a></td>
                     <td>{{$product->created_at->diffForHumans()}}</td>
                     <td>{{$product->updated_at->diffForHumans()}}</td>

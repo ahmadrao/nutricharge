@@ -78,7 +78,7 @@
             <br>
 
             <!-- Order Now Section -->
-            @include('includes.front.order_now')
+            @include('includes.front.product.order_now')
 
 
 
@@ -100,7 +100,7 @@
                 </div>
                 <div class="tab-pane" id="2">
                     <!--  Review Section -->
-                    @include('includes.front.review_section')
+                    @include('includes.front.product.review_section')
                 </div>
             </div>
         </div>
@@ -109,7 +109,7 @@
 
 
     <!-- Related Products -->
-    @include('includes.front.related_products')
+    @include('includes.front.product.related_products')
 
 
 

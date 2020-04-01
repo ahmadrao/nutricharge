@@ -24,7 +24,7 @@ Route::get('/frequently-asked-questions', 'HomeController@faq');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/product/{id}', ['as' => 'home.product', 'uses' => 'AdminProductsController@product']);
+Route::get('/products/{slug}', ['as' => 'home.product', 'uses' => 'AdminProductsController@product']);
 Route::get('/videos/{slug}', 'VideoController@videos');
 
 

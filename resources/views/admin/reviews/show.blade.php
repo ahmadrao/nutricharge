@@ -27,7 +27,7 @@
                     <td>{{$review->author}}</td>
                     <td>{{$review->email}}</td>
                     <td>{{$review->description}}</td>
-                    <td><a href="/product/{{$review->product_id}}" class="btn btn-outline-info">View Product</a></td>
+                    <td><a href="/products/{{$review->product_id}}" class="btn btn-outline-info">View Product</a></td>
                     <td><a href="/admin/review/replies/{{$review->id}}" class="btn btn-outline-primary">View Replies</a></td>
                     <td>
                         @if($review->is_active == 1)

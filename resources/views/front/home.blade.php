@@ -42,7 +42,7 @@
                 <button type="submit" class="form-control btn btn-success">Go</button>
             </div>
         </div>
-        
+
 
     </div> --}}
 
@@ -58,9 +58,9 @@
         @if($products)
             @foreach($products as $product)
                 <div class="col-md-3">
-                    <a href="/product/{{$product->slug}}" style="color: inherit;">
+                    <a href="/products/{{$product->slug}}" style="color: inherit;">
                         <figure class="card card-product">
-                            <div class="img-wrap"> 
+                            <div class="img-wrap">
                                 <img src="{{$product->photo ? $product->photo->file : 'http://placehold.it/700x200'}}">
                             </div>
                             <figcaption class="info-wrap">
@@ -75,7 +75,7 @@
                                                 @endfor
                                             @endif
                                         </span>
-                                    </div> 
+                                    </div>
                                 </div> <!-- action-wrap -->
                             </figcaption>
                         </figure> <!-- card // -->
@@ -96,11 +96,11 @@
     <hr>
 
     <!-- Pagination -->
-    {{-- 
+    {{--
 
     <div class="row">
         <div class="col-sm-6 col-sm-offset-5">
-            
+
             {{$products->render()}}
         </div>
     </div> --}}
@@ -121,7 +121,7 @@
     // $('#search-goal').on('change', function(e) {
     //     console.log(e);
     //     var age_range = e.target.value;
-        
+
     //     console.log(age_range);
     // })
 

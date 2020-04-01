@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Video;
+use App\Product;
 use App\VideoCategory;
 use App\Http\Requests\VideoRequest;
 use Illuminate\Http\Request;
@@ -29,7 +30,6 @@ class VideoController extends Controller
      */
     public function create()
     {
-        
     }
 
     /**
@@ -101,9 +101,8 @@ class VideoController extends Controller
         $category_name = $category['name'];
         $id = $category['id'];
         $videos = Video::where('video_category_id', '=', $id)->get();
+        $nav_products  = Product::select('title', 'slug')->get();
 
-        return view('front.videos', compact('video_categories', 'videos', 'category_name'));
-        
-
+        return view('front.videos', compact('video_categories', 'videos', 'category_name', 'nav_products'));
     }
 }

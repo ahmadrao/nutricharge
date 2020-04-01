@@ -5,9 +5,9 @@
     @if(isset($related_products))
         @foreach($related_products as $product)
             <div class="col-md-4 text-center">
-                <a href="/product/{{$product->slug}}" style="color: inherit;">
+                <a href="/products/{{$product->slug}}" style="color: inherit;">
                     <figure class="card card-product">
-                        <div class="img-wrap"> 
+                        <div class="img-wrap">
                             <img src="{{$product->photo ? $product->photo->file : 'http://placehold.it/700x200'}}">
                         </div>
                         <figcaption class="info-wrap">
@@ -22,7 +22,7 @@
                                             @endfor
                                         @endif
                                     </span>
-                                </div> 
+                                </div>
                             </div> <!-- action-wrap -->
                         </figcaption>
                     </figure> <!-- card // -->

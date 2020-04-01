@@ -17,6 +17,19 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-left">
                 <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Products
+                    <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        @if($nav_products)
+                            @foreach($nav_products as $product)
+                                <li><a href="/products/{{ $product->slug }}">{{ $product->title }}</a></li>
+                            @endforeach
+                        @endif
+
+                    </ul>
+                </li>
+
+                <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Videos
                     <span class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -25,14 +38,14 @@
                                 <li><a href="/videos/{{ $category->slug }}">{{ $category->name }}</a></li>
                             @endforeach
                         @endif
-                        
+
                     </ul>
                 </li>
                 <li><a href="/contact-us">Contact Us</a></li>
                 <li><a href="/about-us">About Us</a></li>
                 <li><a href="/frequently-asked-questions">FAQs</a></li>
                 @if(Auth::guest())
-                    
+
                 @else
                     <li><a href="/admin">Admin</a></li>
 
