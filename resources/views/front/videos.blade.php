@@ -17,16 +17,29 @@
                 <h1>{{ $category_name}}</h1>
             </div>
         </div>
-        @if($videos) 
+        @if($videos)
             @foreach($videos as $video)
-                <div class="col-md-6">
-                    <h2>{{ $video->name }}</h2>
-                    <iframe width="100%" height="100%" src="{{ $video->link }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    
+
+                <div class="col-md-6 ">
+                    <div class="card">
+                        <div class="card-image">
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <iframe width="560" height="315" src="{{ $video->link }}" frameborder="0" allowfullscreen></iframe>
+                            </div>
+
+                        </div><!-- card image -->
+
+                        <div class="card-content">
+                            <span class="card-title">{{ $video->name }}</span>
+
+                        </div><!-- card content -->
+
+
+                    </div>
                 </div>
             @endforeach
         @endif
-        
+
     </div>
     <!-- /.row -->
 
