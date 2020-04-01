@@ -11,24 +11,27 @@
 
         <div class="col-md-6">
             <!-- Preview Image -->
-            <img class="img-responsive" style="margin-left: auto; margin-right: auto;" src="{{$product->photo ? $product->photo->file : 'http://placehold.it/700x200'}}" alt="">
-            <br><br><br>
-            <div>
+            <div class="row">
+                <img class="img-responsive" style="margin-left: auto; margin-right: auto;" src="{{$product->photo ? $product->photo->file : 'http://placehold.it/700x200'}}" alt="">
+            </div>
+            <div class="row">
                 @if($pics)
                     @foreach($pics as $pic)
-                        <div class="col-md-5" style="margin-right: 10px;">
+                        <div class="col-md-6">
                             <img class="img-responsive" style="" src="{{$pic->file}}" alt="">
                         </div>
                     @endforeach
                 @endif
             </div>
 
-            <br><br><br>
-
             <div>
                 @if($videos)
                     @foreach($videos as $video)
-                        <iframe width="40%" height="40%" style="margin-right: 10px;" src="{{ $video }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div class="col-md-6">
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <iframe width="560" height="315" src="{{ $video}}" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </div>
                     @endforeach
                 @endif
             </div>
@@ -84,6 +87,7 @@
 
         </div>
     </div>
+    <br><br><br>
         <div id="exTab2" class="row">
             <ul class="nav nav-tabs">
                 <li class="active">
